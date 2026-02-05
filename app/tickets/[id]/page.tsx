@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { Select } from '@/components/ui/Select';
 import { Badge } from '@/components/ui/Badge';
 import { format } from 'date-fns';
-import { ArrowLeft, User, Calendar, Tag, AlertCircle, Send, Shield, UserCheck } from 'lucide-react';
+import { ArrowLeft, User, Tag, Send, Shield, UserCheck, MessageSquare, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { useToast } from '@/context/ToastContext';
 
@@ -76,14 +76,13 @@ export default function TicketDetailsPage() {
         body: JSON.stringify({ message: comment }),
       });
       if (res.ok) {
-        showToast('Comment added', 'success');
+        showToast('Message sent', 'success');
         setComment('');
         fetchTicket();
       } else {
-        showToast('Failed to add comment', 'error');
+        showToast('Failed to send message', 'error');
       }
-    } catch (error) {
-      console.error('Failed to add comment', error);
+    } catch (_error) {
       showToast('An error occurred', 'error');
     } finally {
       setCommentLoading(false);
@@ -99,13 +98,12 @@ export default function TicketDetailsPage() {
         body: JSON.stringify(updates),
       });
       if (res.ok) {
-        showToast('Ticket updated', 'success');
+        showToast('Properties updated', 'success');
         fetchTicket();
       } else {
         showToast('Failed to update ticket', 'error');
       }
-    } catch (error) {
-      console.error('Failed to update ticket', error);
+    } catch (_error) {
       showToast('An error occurred', 'error');
     } finally {
       setUpdateLoading(false);
@@ -114,18 +112,20 @@ export default function TicketDetailsPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[calc(100vh-120px)]">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      <div className="flex flex-col items-center justify-center min-h-[calc(100vh-120px)] animate-fade-in">
+        <div className="w-12 h-12 border-4 border-indigo-100 border-t-indigo-600 rounded-full animate-spin" />
+        <p className="mt-4 text-slate-400 font-black uppercase tracking-widest text-[10px]">Accessing Vault</p>
       </div>
     );
   }
 
   if (!ticket) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-12 text-center">
-        <h1 className="text-2xl font-bold mb-4">Ticket not found</h1>
+      <div className="max-w-3xl mx-auto px-4 py-24 text-center animate-fade-in">
+        <h1 className="text-3xl font-black text-slate-900 mb-4 tracking-tight">Resource Not Found</h1>
+        <p className="text-slate-500 mb-10 font-medium">The ticket you are looking for does not exist or has been archived.</p>
         <Link href="/">
-          <Button>Back to Dashboard</Button>
+          <Button size="lg">Return to Dashboard</Button>
         </Link>
       </div>
     );
@@ -135,110 +135,121 @@ export default function TicketDetailsPage() {
   const isAdmin = currentUser?.role === 'admin';
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <Link href="/" className="inline-flex items-center text-sm text-gray-500 hover:text-blue-600 mb-6 group">
-        <ArrowLeft className="h-4 w-4 mr-1 group-hover:-translate-x-1 transition-transform" />
-        Back to Dashboard
-      </Link>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 animate-fade-in">
+      <div className="flex flex-wrap items-center justify-between gap-6 mb-10">
+        <Link href="/" className="inline-flex items-center text-sm font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600 transition-colors group">
+          <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+          Dashboard
+        </Link>
+        <div className="flex items-center space-x-3">
+          <Badge variant="default" className="bg-slate-100">Ticket #{ticket._id.substring(ticket._id.length-6).toUpperCase()}</Badge>
+          <Badge variant={ticket.status === 'Resolved' ? 'success' : 'info'} className="px-4 py-1.5 rounded-full">{ticket.status}</Badge>
+        </div>
+      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-6">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-            <div className="p-6 border-b bg-gray-50/50">
-              <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
-                <span className="font-mono text-sm text-gray-500 uppercase tracking-wider">Ticket #{ticket._id}</span>
-                <Badge variant={ticket.status === 'Open' ? 'info' : ticket.status === 'Resolved' ? 'success' : 'warning'}>
-                  {ticket.status}
-                </Badge>
-              </div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-2">{ticket.title}</h1>
-              <div className="flex flex-wrap gap-y-2 gap-x-6 text-sm text-gray-600">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        {/* Main Content Area */}
+        <div className="lg:col-span-8 space-y-10">
+          {/* Ticket Header Card */}
+          <div className="bg-white rounded-[40px] shadow-2xl shadow-slate-200/40 border border-slate-100 overflow-hidden animate-slide-up">
+            <div className="p-10 border-b border-slate-50 bg-slate-50/30">
+              <h1 className="text-3xl font-black text-slate-900 mb-6 tracking-tight leading-tight">{ticket.title}</h1>
+              <div className="flex flex-wrap gap-y-4 gap-x-8 text-sm font-bold text-slate-500">
                 <div className="flex items-center">
-                  <User className="h-4 w-4 mr-1.5 text-gray-400" />
+                  <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3 text-indigo-600">
+                    <User className="h-4 w-4" />
+                  </div>
                   {ticket.createdBy?.name}
                 </div>
                 <div className="flex items-center">
-                  <Calendar className="h-4 w-4 mr-1.5 text-gray-400" />
-                  {format(new Date(ticket.createdAt), 'MMM d, yyyy HH:mm')}
+                  <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center mr-3 text-slate-400 text-[10px] font-black">
+                    <Clock className="h-4 w-4" />
+                  </div>
+                  {format(new Date(ticket.createdAt), 'MMM d, h:mm a')}
+                </div>
+                <div className="flex items-center">
+                  <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center mr-3 text-emerald-600">
+                    <Tag className="h-4 w-4" />
+                  </div>
+                  {ticket.category}
                 </div>
               </div>
             </div>
-            <div className="p-6">
-              <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Description</h3>
-              <p className="text-gray-800 whitespace-pre-wrap leading-relaxed">{ticket.description}</p>
+            <div className="p-10">
+              <h3 className="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Initial Report</h3>
+              <p className="text-slate-700 whitespace-pre-wrap leading-relaxed text-lg font-medium">{ticket.description}</p>
             </div>
           </div>
 
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold text-gray-900 flex items-center">
-              Conversation History
-              <span className="ml-2 bg-gray-200 text-gray-700 text-xs py-0.5 px-2 rounded-full">
-                {ticket.comments?.length || 0}
+          {/* Conversation History */}
+          <div className="space-y-8 animate-slide-up" style={{ animationDelay: '0.1s' }}>
+            <div className="flex items-center justify-between">
+              <h3 className="text-xl font-black text-slate-900 flex items-center tracking-tight">
+                <MessageSquare className="h-6 w-6 mr-3 text-indigo-600" />
+                Communication History
+              </h3>
+              <span className="bg-slate-100 text-slate-500 text-[10px] font-black py-1 px-3 rounded-full uppercase tracking-wider">
+                {ticket.comments?.length || 0} Entries
               </span>
-            </h3>
+            </div>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               {ticket.comments?.map((c: any) => (
-                <div key={c._id} className={`flex ${c.author?._id === currentUser?.id ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[85%] rounded-2xl p-4 shadow-sm border ${
+                <div key={c._id} className={`flex ${c.author?._id === currentUser?.id ? 'justify-end' : 'justify-start'} group animate-fade-in`}>
+                  <div className={`max-w-[85%] sm:max-w-[70%] rounded-[28px] p-6 shadow-xl transition-transform hover:scale-[1.01] ${
                     c.author?._id === currentUser?.id
-                      ? 'bg-blue-600 text-white border-blue-500'
-                      : 'bg-white text-gray-900 border-gray-100'
+                      ? 'bg-slate-900 text-white shadow-slate-900/10 rounded-tr-none'
+                      : 'bg-white text-slate-900 shadow-slate-200/50 border border-slate-100 rounded-tl-none'
                   }`}>
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center space-x-2">
-                        <span className="font-bold text-sm">{c.author?.name}</span>
-                        <Badge variant={c.author?.role === 'customer' ? 'default' : 'info'} className="text-[10px] py-0 px-1.5">
+                        <span className="font-black text-sm">{c.author?.name}</span>
+                        <Badge variant={c.author?.role === 'customer' ? 'default' : 'info'} className="text-[9px] px-2 py-0.5 rounded-lg font-black uppercase">
                           {c.author?.role}
                         </Badge>
                       </div>
-                      <span className={`text-[10px] ${c.author?._id === currentUser?.id ? 'text-blue-100' : 'text-gray-400'}`}>
-                        {format(new Date(c.createdAt), 'MMM d, h:mm a')}
+                      <span className={`text-[10px] font-bold uppercase tracking-widest ${c.author?._id === currentUser?.id ? 'text-slate-400' : 'text-slate-300'}`}>
+                        {format(new Date(c.createdAt), 'h:mm a')}
                       </span>
                     </div>
-                    <p className="text-sm leading-relaxed">{c.message}</p>
+                    <p className="text-[15px] leading-relaxed font-medium">{c.message}</p>
                   </div>
                 </div>
               ))}
 
               {(!ticket.comments || ticket.comments.length === 0) && (
-                <div className="text-center py-8 bg-gray-50 rounded-xl border border-dashed">
-                  <p className="text-sm text-gray-500">No messages yet. Start the conversation!</p>
+                <div className="text-center py-16 bg-white/40 backdrop-blur-sm rounded-[40px] border-2 border-dashed border-slate-100">
+                  <p className="text-sm text-slate-400 font-bold uppercase tracking-widest">Awaiting response</p>
                 </div>
               )}
             </div>
 
-            <form onSubmit={handleAddComment} className="mt-6 bg-white p-4 rounded-xl shadow-sm border focus-within:ring-2 focus-within:ring-blue-500 transition-shadow">
+            {/* Input Box */}
+            <form onSubmit={handleAddComment} className="mt-10 bg-white p-2 rounded-[32px] shadow-2xl shadow-slate-200/50 border border-slate-50 focus-within:ring-4 focus-within:ring-indigo-50 transition-all">
               <textarea
-                className="w-full min-h-[100px] bg-transparent border-none focus:ring-0 text-sm placeholder:text-gray-400 resize-none"
-                placeholder="Type your message here..."
+                className="w-full min-h-[140px] bg-transparent border-none focus:ring-0 text-[15px] font-medium placeholder:text-slate-300 p-6 resize-none"
+                placeholder="Compose your reply here..."
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
                 disabled={commentLoading}
               />
-              <div className="flex justify-end mt-2 pt-2 border-t">
-                <Button type="submit" size="sm" isLoading={commentLoading} disabled={!comment.trim()}>
+              <div className="flex justify-end p-4 bg-slate-50 rounded-[24px]">
+                <Button type="submit" isLoading={commentLoading} disabled={!comment.trim()} className="px-8 shadow-indigo-300">
                   <Send className="h-4 w-4 mr-2" />
-                  Send Message
+                  Post Reply
                 </Button>
               </div>
             </form>
           </div>
         </div>
 
-        <div className="space-y-6">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Ticket Details</h3>
-            <div className="space-y-4">
-              <div>
-                <label className="text-xs text-gray-500 block mb-1">Category</label>
-                <div className="flex items-center text-sm font-medium">
-                  <Tag className="h-4 w-4 mr-2 text-gray-400" />
-                  {ticket.category}
-                </div>
-              </div>
-              <div>
-                <label className="text-xs text-gray-500 block mb-1">Priority</label>
+        {/* Sidebar Info Area */}
+        <div className="lg:col-span-4 space-y-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          <div className="bg-white rounded-[40px] shadow-2xl shadow-slate-200/40 border border-slate-100 p-10">
+            <h3 className="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] mb-8">Intelligence</h3>
+            <div className="space-y-8">
+              <div className="group">
+                <label className="text-[10px] font-black text-slate-300 uppercase tracking-widest block mb-3 group-hover:text-indigo-400 transition-colors">Priority Matrix</label>
                 {(isAdmin || isAgent) ? (
                   <Select
                     options={[
@@ -249,18 +260,20 @@ export default function TicketDetailsPage() {
                     value={ticket.priority}
                     onChange={(e) => handleUpdateTicket({ priority: e.target.value })}
                     disabled={updateLoading}
+                    className="bg-slate-50 border-transparent font-bold"
                   />
                 ) : (
-                  <div className="flex items-center text-sm font-medium">
-                    <AlertCircle className="h-4 w-4 mr-2 text-gray-400" />
-                    <Badge variant={ticket.priority === 'High' ? 'error' : ticket.priority === 'Medium' ? 'warning' : 'success'}>
+                  <div className="flex items-center text-sm font-black">
+                    <div className={`w-2 h-2 rounded-full mr-3 ${ticket.priority === 'High' ? 'bg-rose-500' : 'bg-emerald-500'}`} />
+                    <Badge variant={ticket.priority === 'High' ? 'error' : ticket.priority === 'Medium' ? 'warning' : 'success'} className="px-4 py-1.5 rounded-full">
                       {ticket.priority}
                     </Badge>
                   </div>
                 )}
               </div>
-              <div>
-                <label className="text-xs text-gray-500 block mb-1">Status</label>
+
+              <div className="group">
+                <label className="text-[10px] font-black text-slate-300 uppercase tracking-widest block mb-3 group-hover:text-indigo-400 transition-colors">Ticket Status</label>
                 {(isAdmin || isAgent) ? (
                   <Select
                     options={[
@@ -272,17 +285,19 @@ export default function TicketDetailsPage() {
                     value={ticket.status}
                     onChange={(e) => handleUpdateTicket({ status: e.target.value })}
                     disabled={updateLoading}
+                    className="bg-slate-50 border-transparent font-bold"
                   />
                 ) : (
-                  <div className="flex items-center text-sm font-medium">
-                    <Badge variant={ticket.status === 'Open' ? 'info' : ticket.status === 'Resolved' ? 'success' : 'warning'}>
+                  <div className="flex items-center text-sm font-black">
+                    <Badge variant={ticket.status === 'Open' ? 'info' : ticket.status === 'Resolved' ? 'success' : 'warning'} className="px-4 py-1.5 rounded-full">
                       {ticket.status}
                     </Badge>
                   </div>
                 )}
               </div>
-              <div>
-                <label className="text-xs text-gray-500 block mb-1">Assigned Agent</label>
+
+              <div className="group">
+                <label className="text-[10px] font-black text-slate-300 uppercase tracking-widest block mb-3 group-hover:text-indigo-400 transition-colors">Assigned Personnel</label>
                 {isAdmin ? (
                   <Select
                     options={[
@@ -292,11 +307,12 @@ export default function TicketDetailsPage() {
                     value={ticket.assignedTo?._id || ''}
                     onChange={(e) => handleUpdateTicket({ assignedTo: e.target.value })}
                     disabled={updateLoading}
+                    className="bg-slate-50 border-transparent font-bold"
                   />
                 ) : (
-                  <div className="flex items-center text-sm font-medium">
-                    <UserCheck className="h-4 w-4 mr-2 text-gray-400" />
-                    {ticket.assignedTo?.name || 'Unassigned'}
+                  <div className="flex items-center text-sm font-bold bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                    <UserCheck className="h-4 w-4 mr-3 text-emerald-500" />
+                    {ticket.assignedTo?.name || 'Awaiting Assignment'}
                   </div>
                 )}
               </div>
@@ -304,24 +320,24 @@ export default function TicketDetailsPage() {
           </div>
 
           {isAdmin && (
-            <div className="bg-red-50 rounded-xl border border-red-100 p-6">
-              <h3 className="text-sm font-bold text-red-800 uppercase tracking-widest mb-4 flex items-center">
+            <div className="bg-rose-50/50 backdrop-blur-sm rounded-[40px] border border-rose-100 p-10 animate-pulse-slow">
+              <h3 className="text-[11px] font-black text-rose-800 uppercase tracking-[0.2em] mb-4 flex items-center">
                 <Shield className="h-4 w-4 mr-2" />
-                Admin Actions
+                Restriction Zone
               </h3>
-              <p className="text-xs text-red-600 mb-4">Dangerous actions for this ticket</p>
+              <p className="text-xs text-rose-600 mb-8 font-bold leading-relaxed">Permanent deletion is irreversible. Exercise caution.</p>
               <Button
                 variant="danger"
-                size="sm"
-                className="w-full"
+                size="lg"
+                className="w-full h-14"
                 onClick={async () => {
-                  if (confirm('Delete this ticket permanently?')) {
+                  if (confirm('Permanently wipe this ticket from records?')) {
                     const res = await fetch(`/api/tickets/${id}`, { method: 'DELETE' });
                     if (res.ok) router.push('/admin');
                   }
                 }}
               >
-                Delete Ticket
+                Execute Deletion
               </Button>
             </div>
           )}
