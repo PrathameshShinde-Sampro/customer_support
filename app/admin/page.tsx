@@ -141,10 +141,18 @@ export default function AdminDashboard() {
           {activeTab === 'analytics' && analytics && (
             <div className="space-y-10">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <StatCard title="Total Tickets" value={analytics.totalTickets} icon={Ticket} color="bg-indigo-600" trend="+12%" />
-                <StatCard title="Open Work" value={analytics.statusBreakdown?.Open || 0} icon={AlertCircle} color="bg-amber-500" />
-                <StatCard title="Resolved" value={analytics.statusBreakdown?.Resolved || 0} icon={ArrowUpRight} color="bg-emerald-500" trend="+5%" />
-                <StatCard title="Staff Count" value={users.filter(u => u.role === 'agent').length} icon={Users} color="bg-purple-600" />
+                <div className="animate-slide-up opacity-0 [animation-fill-mode:forwards] [animation-delay:0.1s]">
+                  <StatCard title="Total Tickets" value={analytics.totalTickets} icon={Ticket} color="bg-indigo-600" trend="+12%" />
+                </div>
+                <div className="animate-slide-up opacity-0 [animation-fill-mode:forwards] [animation-delay:0.2s]">
+                  <StatCard title="Open Work" value={analytics.statusBreakdown?.Open || 0} icon={AlertCircle} color="bg-amber-500" />
+                </div>
+                <div className="animate-slide-up opacity-0 [animation-fill-mode:forwards] [animation-delay:0.3s]">
+                  <StatCard title="Resolved" value={analytics.statusBreakdown?.Resolved || 0} icon={ArrowUpRight} color="bg-emerald-500" trend="+5%" />
+                </div>
+                <div className="animate-slide-up opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]">
+                  <StatCard title="Staff Count" value={users.filter(u => u.role === 'agent').length} icon={Users} color="bg-purple-600" />
+                </div>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

@@ -24,42 +24,42 @@ export default async function Home() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 sm:py-32">
-        <div className="text-center max-w-4xl mx-auto animate-fade-in">
-          <div className="inline-flex items-center space-x-2 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100 mb-8 animate-float">
+        <div className="text-center max-w-4xl mx-auto">
+          <div className="inline-flex items-center space-x-2 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100 mb-8 animate-zoom-in">
             <Sparkles className="h-4 w-4 text-indigo-600" />
             <span className="text-xs font-black uppercase tracking-widest text-indigo-600">Reimagining Support</span>
           </div>
 
-          <h1 className="text-6xl md:text-8xl font-black text-slate-900 tracking-tight mb-8 leading-[1.05]">
+          <h1 className="text-6xl md:text-8xl font-black text-slate-900 tracking-tight mb-8 leading-[1.05] animate-slide-up opacity-0 [animation-fill-mode:forwards]">
             Resolve with <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">Velocity</span>
           </h1>
 
-          <p className="text-xl text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="text-xl text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed font-medium animate-slide-up opacity-0 [animation-fill-mode:forwards] [animation-delay:0.1s]">
             The next-generation command center for customer success. Empower your team with intelligent ticket management and real-time insights.
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 animate-slide-up opacity-0 [animation-fill-mode:forwards] [animation-delay:0.2s]">
             <Link href="/register">
-              <Button size="lg" className="w-full sm:w-64 h-16 text-lg shadow-2xl shadow-indigo-300 rounded-2xl group">
+              <Button size="xl" className="w-full sm:w-64 shadow-2xl shadow-indigo-300 group">
                 Initialize System
                 <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link href="/login">
-              <Button size="lg" variant="outline" className="w-full sm:w-64 h-16 text-lg bg-white/50 backdrop-blur-sm border-slate-200 rounded-2xl hover:bg-white transition-all">
+              <Button size="xl" variant="outline" className="w-full sm:w-64 bg-white/50 backdrop-blur-sm border-slate-200 hover:bg-white transition-all">
                 Staff Login
               </Button>
             </Link>
           </div>
 
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 text-xs text-slate-400 font-black uppercase tracking-[0.2em]">
-            <span className="flex items-center"><Zap className="h-4 w-4 mr-2 text-amber-500 fill-amber-500" /> Instant Setup</span>
-            <span className="flex items-center"><ShieldCheck className="h-4 w-4 mr-2 text-indigo-500" /> Bank-Level JWT</span>
-            <span className="flex items-center"><Globe className="h-4 w-4 mr-2 text-emerald-500" /> Multi-Role Access</span>
+          <div className="mt-16 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 text-xs text-slate-400 font-black uppercase tracking-[0.2em] animate-fade-in opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]">
+            <span className="flex items-center group cursor-help transition-colors hover:text-indigo-600"><Zap className="h-4 w-4 mr-2 text-amber-500 fill-amber-500 group-hover:animate-bounce" /> Instant Setup</span>
+            <span className="flex items-center group cursor-help transition-colors hover:text-indigo-600"><ShieldCheck className="h-4 w-4 mr-2 text-indigo-500" /> Bank-Level JWT</span>
+            <span className="flex items-center group cursor-help transition-colors hover:text-indigo-600"><Globe className="h-4 w-4 mr-2 text-emerald-500" /> Multi-Role Access</span>
           </div>
         </div>
 
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 animate-slide-up opacity-0 [animation-fill-mode:forwards]" style={{ animationDelay: '0.5s' }}>
           {/* Card 1 */}
           <div className="group relative bg-white p-10 rounded-[40px] border border-slate-100 shadow-2xl shadow-slate-200/50 transition-all duration-500 hover:-translate-y-4 hover:shadow-indigo-200/40">
             <div className="absolute top-0 right-0 p-8 text-slate-50 group-hover:text-indigo-50 transition-colors">

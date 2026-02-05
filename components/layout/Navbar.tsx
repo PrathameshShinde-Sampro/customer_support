@@ -54,7 +54,7 @@ export const Navbar = () => {
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-3 group">
-              <div className="p-2.5 bg-indigo-600 rounded-2xl shadow-lg shadow-indigo-200 transition-transform group-hover:scale-110 group-active:scale-95">
+              <div className="p-2.5 bg-indigo-600 rounded-2xl shadow-lg shadow-indigo-200 transition-transform group-hover:scale-110 group-active:scale-95 animate-float">
                 <Ticket className="h-6 w-6 text-white" />
               </div>
               <span className="font-black text-2xl tracking-tight text-slate-900">Support<span className="text-indigo-600">Hub</span></span>

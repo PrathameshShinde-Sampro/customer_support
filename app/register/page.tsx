@@ -69,41 +69,49 @@ export default function RegisterPage() {
             </div>
           )}
           <div className="space-y-5">
-            <Input
-              label="Full Name"
-              type="text"
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="e.g. John Doe"
-              className="h-14 bg-slate-50/50"
-            />
-            <Input
-              label="Personnel Email"
-              type="email"
-              autoComplete="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="name@example.com"
-              className="h-14 bg-slate-50/50"
-            />
-            <Input
-              label="Create Password"
-              type="password"
-              autoComplete="new-password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              className="h-14 bg-slate-50/50"
-            />
+            <div className="animate-slide-up opacity-0 [animation-fill-mode:forwards] [animation-delay:0.1s]">
+              <Input
+                label="Full Name"
+                type="text"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="e.g. John Doe"
+                className="h-14 bg-slate-50/50"
+              />
+            </div>
+            <div className="animate-slide-up opacity-0 [animation-fill-mode:forwards] [animation-delay:0.2s]">
+              <Input
+                label="Personnel Email"
+                type="email"
+                autoComplete="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="name@example.com"
+                className="h-14 bg-slate-50/50"
+              />
+            </div>
+            <div className="animate-slide-up opacity-0 [animation-fill-mode:forwards] [animation-delay:0.3s]">
+              <Input
+                label="Create Password"
+                type="password"
+                autoComplete="new-password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="••••••••"
+                className="h-14 bg-slate-50/50"
+              />
+            </div>
           </div>
 
-          <Button type="submit" className="w-full h-14 text-lg shadow-indigo-300 group" isLoading={loading}>
-            Create Account
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <div className="animate-slide-up opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]">
+            <Button type="submit" className="w-full h-14 text-lg shadow-indigo-300 group" isLoading={loading}>
+              Create Account
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
         </form>
 
         <p className="text-center text-sm font-bold text-slate-400 uppercase tracking-widest">

@@ -69,32 +69,38 @@ export default function LoginPage() {
             </div>
           )}
           <div className="space-y-6">
-            <Input
-              label="Personnel Email"
-              type="email"
-              autoComplete="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="name@company.com"
-              className="h-14 bg-slate-50/50"
-            />
-            <Input
-              label="Access Password"
-              type="password"
-              autoComplete="current-password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              className="h-14 bg-slate-50/50"
-            />
+            <div className="animate-slide-up opacity-0 [animation-fill-mode:forwards] [animation-delay:0.1s]">
+              <Input
+                label="Personnel Email"
+                type="email"
+                autoComplete="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="name@company.com"
+                className="h-14 bg-slate-50/50"
+              />
+            </div>
+            <div className="animate-slide-up opacity-0 [animation-fill-mode:forwards] [animation-delay:0.2s]">
+              <Input
+                label="Access Password"
+                type="password"
+                autoComplete="current-password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="••••••••"
+                className="h-14 bg-slate-50/50"
+              />
+            </div>
           </div>
 
-          <Button type="submit" className="w-full h-14 text-lg shadow-indigo-300 group" isLoading={loading}>
-            Authorize
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <div className="animate-slide-up opacity-0 [animation-fill-mode:forwards] [animation-delay:0.3s]">
+            <Button type="submit" className="w-full h-14 text-lg shadow-indigo-300 group" isLoading={loading}>
+              Authorize
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
         </form>
 
         <p className="text-center text-sm font-bold text-slate-400 uppercase tracking-widest">

@@ -2,9 +2,11 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { jwtVerify } from 'jose';
 
-const JWT_SECRET = new TextEncoder().encode(
-  process.env.JWT_SECRET || 'fallback_secret'
-);
+const secret = process.env.JWT_SECRET;
+if (!secret) {
+  throw new Error('JWT_SECRET environment variable is missing');
+}
+const JWT_SECRET = new TextEncoder().encode(secret);
 
 export async function middleware(request: NextRequest) {
   const token = request.cookies.get('token')?.value;
