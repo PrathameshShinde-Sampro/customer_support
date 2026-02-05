@@ -3,8 +3,7 @@ import { verifyToken } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
-import { Badge } from '@/components/ui/Badge';
-import { Ticket, ShieldCheck, Headphones, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Ticket, ShieldCheck, Headphones, ArrowRight, Zap, Sparkles, Globe } from 'lucide-react';
 
 export default async function Home() {
   const cookieStore = await cookies();
@@ -18,79 +17,93 @@ export default async function Home() {
   }
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative isolate overflow-hidden bg-slate-50">
       {/* Background Decor */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-indigo-50/50 to-transparent -z-10" />
-      <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-indigo-200/20 blur-[120px] rounded-full -z-10 animate-pulse" />
-      <div className="absolute bottom-[20%] left-[-5%] w-[400px] h-[400px] bg-purple-200/20 blur-[100px] rounded-full -z-10" />
+      <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
+        <div className="relative left-[calc(50%-11rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-        <div className="text-center max-w-4xl mx-auto mb-20 animate-fade-in">
-          <Badge variant="info" className="mb-6 px-4 py-1.5 rounded-full">New: Version 2.0 is live</Badge>
-          <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight mb-8 leading-[1.1]">
-            Elevate Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Support Experience</span>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 sm:py-32">
+        <div className="text-center max-w-4xl mx-auto animate-fade-in">
+          <div className="inline-flex items-center space-x-2 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100 mb-8 animate-float">
+            <Sparkles className="h-4 w-4 text-indigo-600" />
+            <span className="text-xs font-black uppercase tracking-widest text-indigo-600">Reimagining Support</span>
+          </div>
+
+          <h1 className="text-6xl md:text-8xl font-black text-slate-900 tracking-tight mb-8 leading-[1.05]">
+            Resolve with <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">Velocity</span>
           </h1>
-          <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
-            The all-in-one platform for rapid resolution. Empowers customers, optimizes agents, and provides deep insights for administrators.
+
+          <p className="text-xl text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
+            The next-generation command center for customer success. Empower your team with intelligent ticket management and real-time insights.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-6">
+
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
             <Link href="/register">
-              <Button size="lg" className="w-full sm:w-auto h-14 text-lg">
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button size="lg" className="w-full sm:w-64 h-16 text-lg shadow-2xl shadow-indigo-300 rounded-2xl group">
+                Initialize System
+                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link href="/login">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto h-14 text-lg bg-white">
-                View Demo
+              <Button size="lg" variant="outline" className="w-full sm:w-64 h-16 text-lg bg-white/50 backdrop-blur-sm border-slate-200 rounded-2xl hover:bg-white transition-all">
+                Staff Login
               </Button>
             </Link>
           </div>
 
-          <div className="mt-12 flex items-center justify-center space-x-8 text-sm text-slate-400 font-bold uppercase tracking-widest">
-            <span className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-emerald-500" /> Secure JWT</span>
-            <span className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-emerald-500" /> Role-Based</span>
-            <span className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-emerald-500" /> Analytics</span>
+          <div className="mt-16 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 text-xs text-slate-400 font-black uppercase tracking-[0.2em]">
+            <span className="flex items-center"><Zap className="h-4 w-4 mr-2 text-amber-500 fill-amber-500" /> Instant Setup</span>
+            <span className="flex items-center"><ShieldCheck className="h-4 w-4 mr-2 text-indigo-500" /> Bank-Level JWT</span>
+            <span className="flex items-center"><Globe className="h-4 w-4 mr-2 text-emerald-500" /> Multi-Role Access</span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-slide-up">
-          <div className="group bg-white/60 backdrop-blur-md p-10 rounded-[32px] border border-white shadow-xl shadow-indigo-100/50 transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-200/50">
-            <div className="p-4 bg-indigo-50 rounded-2xl inline-block mb-6 text-indigo-600 group-hover:scale-110 transition-transform">
-              <Ticket className="h-8 w-8" />
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          {/* Card 1 */}
+          <div className="group relative bg-white p-10 rounded-[40px] border border-slate-100 shadow-2xl shadow-slate-200/50 transition-all duration-500 hover:-translate-y-4 hover:shadow-indigo-200/40">
+            <div className="absolute top-0 right-0 p-8 text-slate-50 group-hover:text-indigo-50 transition-colors">
+              <Ticket className="h-24 w-24 rotate-12" />
             </div>
-            <h3 className="text-2xl font-black mb-4 text-slate-900">For Customers</h3>
-            <p className="text-slate-600 leading-relaxed font-medium mb-6">Seamless ticket creation and real-time tracking. Communicating with support has never been this intuitive.</p>
-            <ul className="space-y-3 text-sm font-bold text-slate-500">
-              <li className="flex items-center"><div className="w-1.5 h-1.5 bg-indigo-400 rounded-full mr-2" /> One-click creation</li>
-              <li className="flex items-center"><div className="w-1.5 h-1.5 bg-indigo-400 rounded-full mr-2" /> Live status updates</li>
-            </ul>
+            <div className="relative z-10">
+              <div className="p-4 bg-indigo-600 rounded-2xl inline-block mb-8 shadow-lg shadow-indigo-200 text-white">
+                <Ticket className="h-8 w-8" />
+              </div>
+              <h3 className="text-3xl font-black mb-4 text-slate-900">Customers</h3>
+              <p className="text-slate-500 leading-relaxed font-medium mb-8">Crystal-clear communication. Raise requests and track every update in a sleek, unified interface.</p>
+              <div className="h-1 w-12 bg-indigo-600 rounded-full group-hover:w-24 transition-all duration-500" />
+            </div>
           </div>
 
-          <div className="group bg-white/60 backdrop-blur-md p-10 rounded-[32px] border border-white shadow-xl shadow-indigo-100/50 transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-200/50">
-            <div className="p-4 bg-emerald-50 rounded-2xl inline-block mb-6 text-emerald-600 group-hover:scale-110 transition-transform">
-              <Headphones className="h-8 w-8" />
+          {/* Card 2 */}
+          <div className="group relative bg-slate-900 p-10 rounded-[40px] border border-slate-800 shadow-2xl shadow-indigo-950/20 transition-all duration-500 hover:-translate-y-4 hover:shadow-indigo-500/20 overflow-hidden">
+            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-indigo-500/10 rounded-full blur-3xl group-hover:bg-indigo-500/20 transition-colors" />
+            <div className="relative z-10">
+              <div className="p-4 bg-emerald-500 rounded-2xl inline-block mb-8 shadow-lg shadow-emerald-200/20 text-white">
+                <Headphones className="h-8 w-8" />
+              </div>
+              <h3 className="text-3xl font-black mb-4 text-white">Agents</h3>
+              <p className="text-slate-400 leading-relaxed font-medium mb-8">A workspace built for speed. Manage queues, prioritize tasks, and resolve issues with built-in workflow tools.</p>
+              <div className="h-1 w-12 bg-emerald-500 rounded-full group-hover:w-24 transition-all duration-500" />
             </div>
-            <h3 className="text-2xl font-black mb-4 text-slate-900">For Agents</h3>
-            <p className="text-slate-600 leading-relaxed font-medium mb-6">Optimized workflow to handle requests. Change priorities, update status, and respond in seconds.</p>
-            <ul className="space-y-3 text-sm font-bold text-slate-500">
-              <li className="flex items-center"><div className="w-1.5 h-1.5 bg-emerald-400 rounded-full mr-2" /> Task prioritization</li>
-              <li className="flex items-center"><div className="w-1.5 h-1.5 bg-emerald-400 rounded-full mr-2" /> Direct communication</li>
-            </ul>
           </div>
 
-          <div className="group bg-white/60 backdrop-blur-md p-10 rounded-[32px] border border-white shadow-xl shadow-indigo-100/50 transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-200/50">
-            <div className="p-4 bg-purple-50 rounded-2xl inline-block mb-6 text-purple-600 group-hover:scale-110 transition-transform">
-              <ShieldCheck className="h-8 w-8" />
+          {/* Card 3 */}
+          <div className="group relative bg-white p-10 rounded-[40px] border border-slate-100 shadow-2xl shadow-slate-200/50 transition-all duration-500 hover:-translate-y-4 hover:shadow-purple-200/40">
+             <div className="relative z-10">
+              <div className="p-4 bg-purple-600 rounded-2xl inline-block mb-8 shadow-lg shadow-purple-200 text-white">
+                <ShieldCheck className="h-8 w-8" />
+              </div>
+              <h3 className="text-3xl font-black mb-4 text-slate-900">Admins</h3>
+              <p className="text-slate-500 leading-relaxed font-medium mb-8">The bird&apos;s-eye view. Manage users, oversee all activities, and drive decisions with deep behavioral analytics.</p>
+              <div className="h-1 w-12 bg-purple-600 rounded-full group-hover:w-24 transition-all duration-500" />
             </div>
-            <h3 className="text-2xl font-black mb-4 text-slate-900">For Admins</h3>
-            <p className="text-slate-600 leading-relaxed font-medium mb-6">Full control over users and tickets. Gain deep insights through an advanced analytics dashboard.</p>
-            <ul className="space-y-3 text-sm font-bold text-slate-500">
-              <li className="flex items-center"><div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2" /> Agent management</li>
-              <li className="flex items-center"><div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2" /> Data visualization</li>
-            </ul>
           </div>
         </div>
+      </div>
+
+      <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
+        <div className="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" />
       </div>
     </div>
   );
