@@ -38,11 +38,25 @@ A robust, role-based customer support system built with Next.js, React, and Mong
    MONGODB_URI=mongodb://localhost:27017/support_system
    JWT_SECRET=your_jwt_secret_key_here
    ```
-4. Run the development server:
+4. Seed the database with initial roles:
+   ```bash
+   npm run seed
+   ```
+5. Run the development server:
    ```bash
    npm run dev
    ```
-5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Default Credentials
+
+After running the seed script, you can use these accounts to test the system:
+
+| Role | Email | Password |
+| :--- | :--- | :--- |
+| **Admin** | `admin@example.com` | `adminpassword` |
+| **Support Agent** | `agent@example.com` | `agentpassword` |
+| **Customer** | `customer@example.com` | `customerpassword` |
 
 ## User Roles
 
