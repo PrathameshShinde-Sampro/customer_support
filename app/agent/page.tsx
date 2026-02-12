@@ -120,7 +120,7 @@ export default function AgentDashboard() {
             </div>
             <Select
               options={[
-                { label: 'All Statuses', value: '' },
+                { label: 'All Status', value: '' },
                 { label: 'Open', value: 'Open' },
                 { label: 'In Progress', value: 'In Progress' },
                 { label: 'Resolved', value: 'Resolved' },

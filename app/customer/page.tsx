@@ -137,7 +137,7 @@ export default function CustomerDashboard() {
             <div className="w-40">
               <Select
                 options={[
-                  { label: 'All Statuses', value: '' },
+                  { label: 'All Status', value: '' },
                   { label: 'Open', value: 'Open' },
                   { label: 'In Progress', value: 'In Progress' },
                   { label: 'Resolved', value: 'Resolved' },

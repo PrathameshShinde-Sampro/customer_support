@@ -22,12 +22,12 @@ export async function comparePassword(password: string, hashed: string): Promise
 }
 
 export function signToken(payload: JWTPayload): string {
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: '1d' });
+  return jwt.sign(payload, JWT_SECRET as string, { expiresIn: '1d' });
 }
 
 export function verifyToken(token: string): JWTPayload | null {
   try {
-    return jwt.verify(token, JWT_SECRET) as JWTPayload;
+    return jwt.verify(token, JWT_SECRET as string) as JWTPayload;
   } catch (_error) {
     return null;
   }

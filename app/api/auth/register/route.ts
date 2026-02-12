@@ -7,18 +7,24 @@ import { hashPassword } from '@/lib/auth';
 export async function POST(req: Request) {
   try {
     await dbConnect();
-    const { name, email, password } = await req.json();
+    const { name, email: rawEmail, password } = await req.json();
+    const email = rawEmail?.trim().toLowerCase();
 
     if (!name || !email || !password) {
       return NextResponse.json({ message: 'Missing fields' }, { status: 400 });
     }
 
+    console.log(`Registering user: ${email}, password length: ${password.length}`);
+
     const userExists = await User.findOne({ email });
     if (userExists) {
+      console.log(`User already exists: ${email}`);
       return NextResponse.json({ message: 'User already exists' }, { status: 400 });
     }
 
     const hashedPassword = await hashPassword(password);
+    console.log(`Hashed password length: ${hashedPassword.length}`);
+
     const user = await User.create({
       name,
       email,
