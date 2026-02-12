@@ -42,7 +42,7 @@ export default async function Home() {
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light animate-slide-up opacity-0 [animation-fill-mode:forwards] [animation-delay:0.2s]">
+          <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed font-light animate-slide-up opacity-0 [animation-fill-mode:forwards] [animation-delay:0.2s]">
             Experience the pinnacle of customer success infrastructure. <br className="hidden md:block" /> Engineered for speed, security, and scale.
           </p>
 
@@ -73,7 +73,7 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20 animate-slide-up opacity-0 [animation-fill-mode:forwards] [animation-delay:0.6s]">
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Architected for <span className="text-indigo-400">Scale</span></h2>
-            <p className="text-slate-400 max-w-2xl mx-auto text-lg">Every component is meticulously designed to provide a frictionless experience for both agents and customers.</p>
+            <p className="text-slate-300 max-w-2xl mx-auto text-lg">Every component is meticulously designed to provide a frictionless experience for both agents and customers.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -87,7 +87,7 @@ export default async function Home() {
                   <Database className="h-7 w-7 text-indigo-400" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-indigo-300 transition-colors">Secure Data</h3>
-                <p className="text-slate-400 leading-relaxed font-medium">Role-based access control with encrypted sessions. Your data is isolated and protected at rest and in transit.</p>
+                <p className="text-slate-300 leading-relaxed font-medium">Role-based access control with encrypted sessions. Your data is isolated and protected at rest and in transit.</p>
               </div>
             </div>
 
@@ -101,7 +101,7 @@ export default async function Home() {
                   <Layers className="h-7 w-7 text-emerald-400" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-emerald-300 transition-colors">Unified Workspace</h3>
-                <p className="text-slate-400 leading-relaxed font-medium">A single pane of glass for all your support needs. Manage tickets, users, and analytics from one intuitive dashboard.</p>
+                <p className="text-slate-300 leading-relaxed font-medium">A single pane of glass for all your support needs. Manage tickets, users, and analytics from one intuitive dashboard.</p>
               </div>
             </div>
 
@@ -115,7 +115,7 @@ export default async function Home() {
                   <Fingerprint className="h-7 w-7 text-purple-400" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-purple-300 transition-colors">Threaded Identity</h3>
-                <p className="text-slate-400 leading-relaxed font-medium">Keep context in every conversation. Rich text support for detailed issue description and resolution steps.</p>
+                <p className="text-slate-300 leading-relaxed font-medium">Keep context in every conversation. Rich text support for detailed issue description and resolution steps.</p>
               </div>
             </div>
           </div>
@@ -125,7 +125,7 @@ export default async function Home() {
       {/* Trust Section */}
       <div className="py-24 border-y border-white/5 bg-slate-950/50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-center text-sm font-bold text-slate-600 uppercase tracking-widest mb-16">Powering industry leaders</p>
+          <p className="text-center text-sm font-bold text-slate-500 uppercase tracking-widest mb-16">Powering industry leaders</p>
           <div className="flex flex-wrap justify-center items-center gap-16 md:gap-32 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
             <span className="text-3xl font-black text-white tracking-tight hover:text-indigo-400 transition-colors cursor-pointer">ACME</span>
             <span className="text-3xl font-bold text-white flex items-center hover:text-emerald-400 transition-colors cursor-pointer"><div className="w-4 h-4 bg-current rounded-full mr-2"></div> Globex</span>
@@ -145,7 +145,7 @@ export default async function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
               <div>
                 <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">transform</span> your workflow?</h2>
-                <p className="text-lg text-slate-400 mb-10 leading-relaxed">Join thousands of high-growth companies utilizing SupportHub's advanced infrastructure. Get started in minutes, not months.</p>
+                <p className="text-lg text-slate-300 mb-10 leading-relaxed">Join thousands of high-growth companies utilizing SupportHub's advanced infrastructure. Get started in minutes, not months.</p>
 
                 <div className="flex flex-col space-y-4">
                   <div className="flex items-center space-x-4 text-slate-300">
@@ -174,11 +174,11 @@ export default async function Home() {
                   <h3 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">Contact Sales</h3>
                   <form className="space-y-4">
                     <div>
-                      <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Work Email</label>
+                      <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Work Email</label>
                       <input type="email" className="w-full bg-slate-950/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/50 transition-all font-medium" placeholder="ceo@startup.com" />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Inquiry</label>
+                      <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Inquiry</label>
                       <textarea className="w-full bg-slate-950/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/50 transition-all h-32 font-medium" placeholder="Tell us about your team size..."></textarea>
                     </div>
                     <button type="button" className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-indigo-600/20 hover:shadow-indigo-600/40 transform hover:-translate-y-0.5">Send Request</button>

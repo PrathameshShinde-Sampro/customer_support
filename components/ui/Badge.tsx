@@ -14,11 +14,11 @@ interface BadgeProps {
 
 export const Badge: React.FC<BadgeProps> = ({ children, variant = 'default', className }) => {
   const variants = {
-    default: 'bg-slate-100 text-slate-700 ring-1 ring-slate-200',
-    success: 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200',
-    warning: 'bg-amber-50 text-amber-700 ring-1 ring-amber-200',
-    error: 'bg-rose-50 text-rose-700 ring-1 ring-rose-200',
-    info: 'bg-indigo-50 text-indigo-700 ring-1 ring-indigo-200',
+    default: 'bg-slate-800 text-slate-300 border border-slate-700',
+    success: 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.1)]',
+    warning: 'bg-amber-500/10 text-amber-400 border border-amber-500/20 shadow-[0_0_10px_rgba(245,158,11,0.1)]',
+    error: 'bg-rose-500/10 text-rose-400 border border-rose-500/20 shadow-[0_0_10px_rgba(244,63,94,0.1)]',
+    info: 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 shadow-[0_0_10px_rgba(99,102,241,0.1)]',
   };
 
   return (

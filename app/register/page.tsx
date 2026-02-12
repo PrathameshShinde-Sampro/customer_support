@@ -70,7 +70,7 @@ export default function RegisterPage() {
             <ShieldCheck className="h-8 w-8 text-emerald-400" />
           </div>
           <h2 className="text-4xl font-black text-white tracking-tight mb-3">Join SupportHub</h2>
-          <p className="text-slate-400 font-bold uppercase tracking-[0.2em] text-xs">Initialize your customer account</p>
+          <p className="text-slate-300 font-bold uppercase tracking-[0.2em] text-xs">Initialize your customer account</p>
         </div>
 
         <form className="space-y-6" onSubmit={handleSubmit}>
@@ -88,7 +88,7 @@ export default function RegisterPage() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="e.g. John Doe"
-                className="h-14 bg-slate-900/50 border-white/10 text-white placeholder:text-slate-500 focus:border-indigo-500/50 focus:ring-indigo-500/20"
+                className="h-14 bg-slate-900/50 border-white/10 text-white placeholder:text-slate-400 focus:border-indigo-500/50 focus:ring-indigo-500/20"
                 icon={<User className="h-5 w-5 text-indigo-400" />}
               />
             </div>
@@ -101,7 +101,7 @@ export default function RegisterPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="name@example.com"
-                className="h-14 bg-slate-900/50 border-white/10 text-white placeholder:text-slate-500 focus:border-indigo-500/50 focus:ring-indigo-500/20"
+                className="h-14 bg-slate-900/50 border-white/10 text-white placeholder:text-slate-400 focus:border-indigo-500/50 focus:ring-indigo-500/20"
                 icon={<Mail className="h-5 w-5 text-indigo-400" />}
               />
             </div>
@@ -114,7 +114,7 @@ export default function RegisterPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="h-14 bg-slate-900/50 border-white/10 text-white placeholder:text-slate-500 focus:border-indigo-500/50 focus:ring-indigo-500/20"
+                className="h-14 bg-slate-900/50 border-white/10 text-white placeholder:text-slate-400 focus:border-indigo-500/50 focus:ring-indigo-500/20"
                 icon={<Lock className="h-5 w-5 text-indigo-400" />}
               />
             </div>

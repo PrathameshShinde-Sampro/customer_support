@@ -24,12 +24,12 @@ export const Button: React.FC<ButtonProps> = ({
   const baseStyles = 'inline-flex items-center justify-center rounded-xl font-semibold transition-all duration-200 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none disabled:active:scale-100';
 
   const variants = {
-    primary: 'bg-indigo-600 text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-indigo-300 focus-visible:ring-indigo-500',
-    secondary: 'bg-slate-900 text-white shadow-lg shadow-slate-200 hover:bg-slate-800 focus-visible:ring-slate-500',
-    outline: 'border-2 border-slate-200 bg-transparent text-slate-700 hover:bg-slate-50 hover:border-slate-300 focus-visible:ring-slate-500',
-    danger: 'bg-rose-500 text-white shadow-lg shadow-rose-100 hover:bg-rose-600 focus-visible:ring-rose-500',
-    ghost: 'bg-transparent text-slate-600 hover:bg-slate-100 focus-visible:ring-slate-500',
-    glass: 'bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 focus-visible:ring-white/50',
+    primary: 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/20 hover:bg-indigo-500 hover:shadow-indigo-500/40 focus-visible:ring-indigo-500',
+    secondary: 'bg-slate-800 text-white shadow-lg shadow-slate-900/50 hover:bg-slate-700 focus-visible:ring-slate-500 border border-slate-700',
+    outline: 'border-2 border-slate-700 bg-transparent text-slate-300 hover:bg-slate-800 hover:text-white hover:border-slate-600 focus-visible:ring-slate-500',
+    danger: 'bg-rose-600 text-white shadow-lg shadow-rose-900/20 hover:bg-rose-500 focus-visible:ring-rose-500',
+    ghost: 'bg-transparent text-slate-400 hover:bg-slate-800 hover:text-white focus-visible:ring-slate-500',
+    glass: 'bg-white/5 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 focus-visible:ring-white/50',
   };
 
   const sizes = {

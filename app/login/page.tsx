@@ -81,7 +81,7 @@ export default function LoginPage() {
             <Ticket className="h-10 w-10 text-indigo-400" />
           </div>
           <h2 className="text-4xl font-black text-white tracking-tight mb-3">Welcome Back</h2>
-          <p className="text-slate-400 font-bold uppercase tracking-[0.2em] text-xs">Enter your security credentials</p>
+          <p className="text-slate-300 font-bold uppercase tracking-[0.2em] text-xs">Enter your security credentials</p>
         </div>
 
         <form className="space-y-8" onSubmit={handleSubmit}>
@@ -101,7 +101,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="name@company.com"
-                className="h-14 bg-slate-900/50 border-white/10 text-white placeholder:text-slate-500 focus:border-indigo-500/50 focus:ring-indigo-500/20"
+                className="h-14 bg-slate-900/50 border-white/10 text-white placeholder:text-slate-400 focus:border-indigo-500/50 focus:ring-indigo-500/20"
                 icon={<Mail className="h-5 w-5 text-indigo-400" />}
               />
             </div>
@@ -114,7 +114,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="h-14 bg-slate-900/50 border-white/10 text-white placeholder:text-slate-500 focus:border-indigo-500/50 focus:ring-indigo-500/20"
+                className="h-14 bg-slate-900/50 border-white/10 text-white placeholder:text-slate-400 focus:border-indigo-500/50 focus:ring-indigo-500/20"
                 icon={<Lock className="h-5 w-5 text-indigo-400" />}
               />
               <div className="flex justify-end mt-2">
@@ -133,7 +133,7 @@ export default function LoginPage() {
           </div>
         </form>
 
-        <p className="text-center text-sm font-bold text-slate-500 uppercase tracking-widest">
+        <p className="text-center text-sm font-bold text-slate-400 uppercase tracking-widest">
           No access?{' '}
           <Link href="/register" className="text-indigo-400 hover:text-indigo-300 transition-colors border-b-2 border-indigo-500/20 hover:border-indigo-400">
             Register

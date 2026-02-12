@@ -17,12 +17,12 @@ export const Footer = () => {
                             </div>
                             <span className="text-xl font-black text-white tracking-tight group-hover:text-indigo-400 transition-colors">SupportHub</span>
                         </Link>
-                        <p className="text-sm leading-relaxed mb-8 text-slate-400">
+                        <p className="text-sm leading-relaxed mb-8 text-slate-300">
                             Forging the future of customer relationships with precision engineering and algorithmic intelligence.
                         </p>
                         <div className="flex space-x-4">
                             {['𝕏', 'in', 'fb', 'ig'].map((icon, i) => (
-                                <div key={i} className="w-10 h-10 rounded-full bg-slate-800/50 border border-slate-700 hover:bg-indigo-600 hover:border-indigo-500 hover:text-white text-slate-400 transition-all duration-300 cursor-pointer flex items-center justify-center hover:-translate-y-1 shadow-lg shadow-black/20">
+                                <div key={i} className="w-10 h-10 rounded-full bg-slate-800/50 border border-slate-700 hover:bg-indigo-600 hover:border-indigo-500 hover:text-white text-slate-300 transition-all duration-300 cursor-pointer flex items-center justify-center hover:-translate-y-1 shadow-lg shadow-black/20">
                                     <span className="text-xs font-bold">{icon}</span>
                                 </div>
                             ))}
@@ -33,7 +33,7 @@ export const Footer = () => {
                         <h3 className="text-white font-bold mb-8 text-xs uppercase tracking-[0.2em] text-indigo-400">Product</h3>
                         <ul className="space-y-4 text-sm">
                             {['Features', 'Intelligence', 'Integrations', 'Changelog', 'Roadmap'].map((item) => (
-                                <li key={item}><Link href="#" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">{item}</Link></li>
+                                <li key={item}><Link href="#" className="text-slate-300 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">{item}</Link></li>
                             ))}
                         </ul>
                     </div>
@@ -42,7 +42,7 @@ export const Footer = () => {
                         <h3 className="text-white font-bold mb-8 text-xs uppercase tracking-[0.2em] text-indigo-400">Company</h3>
                         <ul className="space-y-4 text-sm">
                             {['About Us', 'Careers', 'Blog', 'Contact', 'Partners'].map((item) => (
-                                <li key={item}><Link href="#" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">{item}</Link></li>
+                                <li key={item}><Link href="#" className="text-slate-300 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">{item}</Link></li>
                             ))}
                         </ul>
                     </div>
@@ -51,7 +51,7 @@ export const Footer = () => {
                         <h3 className="text-white font-bold mb-8 text-xs uppercase tracking-[0.2em] text-indigo-400">Legal</h3>
                         <ul className="space-y-4 text-sm">
                             {['Privacy Policy', 'Terms of Service', 'Cookie Policy', 'Security'].map((item) => (
-                                <li key={item}><Link href="#" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">{item}</Link></li>
+                                <li key={item}><Link href="#" className="text-slate-300 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">{item}</Link></li>
                             ))}
                         </ul>
                     </div>
